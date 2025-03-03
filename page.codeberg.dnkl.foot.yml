@@ -73,7 +73,7 @@ modules:
     config-opts:
       - -Dterminfo=disabled
     post-install:
-      - desktop-file-edit --set-key="Exec" --set-value="foot-wrapper.sh" "../foot.desktop"
+      - desktop-file-edit --set-key="Exec" --set-value="foot-wrapper.sh" "/app/share/applications/foot.desktop"
       - install -Dm755 ../foot-wrapper.sh -t /app/bin/
       - install -Dm644 ../page.codeberg.dnkl.foot.metainfo.xml -t /app/share/metainfo/
     sources:
