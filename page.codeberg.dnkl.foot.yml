@@ -58,6 +58,17 @@ modules:
         tag: v0.15.0
     build-commands:
       - go install -mod=vendor -ldflags "-X main.Version=$(git describe --tags)"
+  - name: libutf8proc
+    builddir: true
+    buildsystem: cmake
+    sources:
+      - type: git
+        url: https://github.com/JuliaStrings/utf8proc.git
+        commit: 90daf9f396cfec91668758eb9cc54bd5248a6b89
+        tag: v2.11.2
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
   - name: tllist
     builddir: true
     buildsystem: meson
@@ -72,6 +83,9 @@ modules:
   - name: fcft
     builddir: true
     buildsystem: meson
+    config-opts:
+      - -Dgrapheme-shaping=enabled
+      - -Drun-shaping=enabled
     sources:
       - type: git
         url: https://codeberg.org/dnkl/fcft.git
@@ -80,17 +94,6 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
-  - name: libutf8proc
-    builddir: true
-    buildsystem: cmake
-    sources:
-      - type: git
-        url: https://github.com/JuliaStrings/utf8proc.git
-        commit: 90daf9f396cfec91668758eb9cc54bd5248a6b89
-        tag: v2.11.2
-        x-checker-data:
-          type: git
-          tag-pattern: ^v([\d.]+)$
   - name: foot
     builddir: true
     buildsystem: meson
