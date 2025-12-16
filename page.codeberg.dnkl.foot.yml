@@ -32,27 +32,32 @@ modules:
     sources:
       - type: git
         url: https://github.com/1player/host-spawn
-        tag: 'v1.6.1'
+        commit: d76c3a5196a8e0943f6a1c7c9f1acde4bd83c40c
+        tag: v1.6.2
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+      # The below dependencies needs to be manually updated, adding to external checker could result on a break build
       - dest: vendor
         path: modules.txt
         type: file
-      - dest: vendor/github.com/godbus/dbus/v5
-        sha256: 03dfa8e71089a6f477310d15c4d3a036d82d028532881b50fee254358e782ad9
-        strip-components: 4
-        type: archive
-        url: https://proxy.golang.org/github.com/godbus/dbus/v5/@v/v5.1.0.zip
-      - dest: vendor/github.com/pkg/term
-        sha256: 943df71d3bc33501c59e581953fc455a6286c02a6dc92ffcf0be3aaab203fef9
-        strip-components: 3
-        type: archive
-        url: https://proxy.golang.org/github.com/pkg/term/@v/v1.1.0.zip
-      - dest: vendor/golang.org/x/sys
-        sha256: 8612eb416c739c3b04ce48dcbe65632c6fbc427031fd981caeceec6410d1e1fc
-        strip-components: 3
-        type: archive
-        url: https://proxy.golang.org/golang.org/x/sys/@v/v0.15.0.zip
+      - type: git
+        dest: vendor/github.com/godbus/dbus/v5
+        url: https://github.com/godbus/dbus.git
+        commit: e523abc905595cf17fb0001a7d77eaaddfaa216d
+        tag: v5.1.0
+      - type: git
+        dest: vendor/github.com/pkg/term
+        url: https://github.com/pkg/term.git
+        commit: d02e49dd31404f3c3cf4b5469b28942194e0ca23
+        tag: v1.1.0
+      - type: git
+        dest: vendor/golang.org/x/sys
+        url: https://go.googlesource.com/sys.git
+        commit: 13b15b780d9013988b1fb0e79e30b2528a877638
+        tag: v0.15.0
     build-commands:
-      - go install -mod=vendor
+      - go install -mod=vendor -ldflags "-X main.Version=$(git describe --tags)"
   - name: tllist
     builddir: true
     buildsystem: meson
