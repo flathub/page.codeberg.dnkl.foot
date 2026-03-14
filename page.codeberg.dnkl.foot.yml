@@ -106,8 +106,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/dnkl/foot.git
-        commit: b44a62724cd51c7fecdfd9d1b41a3691b11a4c27
-        tag: 1.25.0
+        commit: ef15414b301513a75193fd872de79d6379f41a79
+        tag: 1.26.1
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
