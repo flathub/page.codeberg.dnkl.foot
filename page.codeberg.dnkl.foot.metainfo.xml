@@ -106,6 +106,7 @@
                 <li>Whyme Lyu</li>
                 <li>Yaakov Selkowitz</li>
             </lu>
+            <url>https://codeberg.org/dnkl/foot/releases/tag/1.26.0</url>
         </release>
         <release version="1.20.2" date="2025-01-18" />
         <release version="1.20.1" date="2025-01-03" />
@@ -130,5 +131,7 @@
     <launchable type="desktop-id">page.codeberg.dnkl.foot.desktop</launchable>
     <url type="homepage">https://codeberg.org/dnkl/foot</url>
     <url type="bugtracker">https://codeberg.org/dnkl/foot/issues</url>
+    <url type="vcs-browser">https://codeberg.org/dnkl/foot</url>
+    <url type="help">https://codeberg.org/dnkl/foot/wiki</url>
     <content_rating type="oars-1.1" />
 </component>
