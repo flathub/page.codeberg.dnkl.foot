@@ -3,9 +3,11 @@
     <id>page.codeberg.dnkl.foot</id>
     <metadata_license>MIT</metadata_license>
     <project_license>MIT</project_license>
-    <developer_name>dnkl</developer_name>
+    <developer id="page.codeberg.dnkl">
+        <name>dnkl</name>
+    </developer>
     <name>foot</name>
-    <summary>The fast, lightweight and minimalistic Wayland terminal emulator.</summary>
+    <summary>The fast, lightweight and minimalistic Wayland terminal emulator</summary>
     <description>
         <ul>
             <li>Fast</li>
@@ -30,96 +32,109 @@
     <screenshots>
         <screenshot type="default">
             <caption>Foot with sixel graphics</caption>
-            <image>https://codeberg.org/dnkl/foot/raw/commit/037a2f4fa2c6fab014248d62efa8a6e14f617832/doc/sixel-tux-foot.png</image>
+            <image>
+                https://codeberg.org/dnkl/foot/raw/commit/037a2f4fa2c6fab014248d62efa8a6e14f617832/doc/sixel-tux-foot.png</image>
         </screenshot>
     </screenshots>
     <releases>
         <release version="1.26.1" date="2026-03-14">
-        <p>Fixed</p>
-        <ul>
-            <li>Wrong documented default value for initial-color-theme in foot.ini(5) (#2292).</li>
-            <li>Occasional crashes when closing a window and tweak.pre-apply-damage=yes (the
-                default) (#2288).</li>
-            <p>Contributors</p>
-        </ul>
-        <ul>
-            <li>Roshless</li>
-            <li>vlkrs</li>
-        </ul>
-        <url>https://codeberg.org/dnkl/foot/releases/tag/1.26.1</url>
+            <description>
+                <p>Fixed</p>
+                <ul>
+                    <li>Wrong documented default value for initial-color-theme in foot.ini(5)
+                        (#2292).</li>
+                    <li>Occasional crashes when closing a window and tweak.pre-apply-damage=yes (the
+                        default) (#2288).</li>
+                </ul>
+                <p>Contributors</p>
+                <ul>
+                    <li>Roshless</li>
+                    <li>vlkrs</li>
+                </ul>
+            </description>
+            <url>https://codeberg.org/dnkl/foot/releases/tag/1.26.1</url>
         </release>
         <release version="1.26.0" date="2026-03-03">
-            <p>Added</p>
-            <ul>
-                <li>toplevel-tag option (and --toplevel-tag command line options to foot and
-                    footclient), allowing you to set a custom toplevel tag. The compositor must
-                    implement the new xdg-toplevel-tag-v1 Wayland protocol (#2212).</li>
-                <li>[colors-dark] section to foot.ini. Replaces [colors].</li>
-                <li>[colors-light] section to foot.ini. Replaces [colors2].</li>
-                <li> XTGETTCAP: added query-os-name, returning the OS foot is compiled for (e.g.
-                    'Linux') (#2209).</li>
-                <li>pad option now supports 4-directional padding format: LEFTxTOPxRIGHTxBOTTOM
-                    (e.g., 20x10x20x10).</li>
-                <li>--config=PATH option is now automatically passed to new terminals spawned via
-                    spawn-terminal action (#2259).</li>
-                <li>Preliminary (untested) support for background blur via the new
-                    ext-background-effect-v1 protocol. Enable by setting
-                    colors-{dark,light}.blur=yes. Foot needs to have been built against
-                    wayland-protocols >= 1.45, and the compositor must implement
-                    theext-background-effect-v1 protocol, and the blur effect.</li>
-            </ul>
-            <p>Changed</p>
-            <ul>
-                <li>When enabling "focus mode" (private mode 1004), foot now sends a focus event
-                    immediately, to inform the application what the current state is (#2202).</li>
-                <li>Scrollback search is now case sensitive when the search string contains at least
-                    one upper case character.</li>
-                <li>Mouse tracking in SGR pixel mode no longer emits negative column/row pixel
-                    values (#2226).
-                </li>
-                <li>Foot now always uses ARGB SHM surfaces. In earlier versions, XRGB surfaces were
-                    used for opaque surfaces. Unfortunately, several compositors had issues when
-                    foot switched between ARGB and XRGB surfaces (for example when switching color
-                    theme, or toggling fullscreen).</li>
-            </ul>
-            <p>Deprecated</p>
-            <ul>
-                <li>[colors] section in foot.ini. Use [colors-dark] instead.</li>
-                <li>[colors2] section in foot.ini. Use [colors-light] instead.</li>
-            </ul>
-            <p>Removed</p>
-            <ul>
-                <li>cursor.color config option (deprecated in 1.23.0). Use
-                    colors-{dark,light}.cursor instead.</li>
-            </ul>
-            <p>Fixed</p>
-            <ul>
-                <li>Search mode: composing keys not ignored.</li>
-                <li>Crash when triple-clicking a soft-wrapped line and there is a quote character in
-                    the last column.</li>
-                <li>Crash when reverse-scrolling (terminfo capability rin) such that the current
-                    viewport ends up outside the scrollback (#2232).</li>
-                <li>Regression: visual glitches in rare circumstances.</li>
-                <li>Key release events for shortcuts being sent to the client application (kitty
-                    keyboard protocol only) (#2257). * Crash when application emits sixel RA with a
-                    height of 0, a width > 0, and then starts writing sixel data (#2267).</li>
-                <li>Crash if shutting down terminal instance while a "pre-apply damage" thread is
-                    running (#2263).</li>
-            </ul>
-            <p>Contributors</p>
-            <ul>
-                <li>Andrei</li>
-                <li>Barinderpreet Singh</li>
-                <li>c4llv07e</li>
-                <li>Johannes Altmanninger</li>
-                <li>nariby</li>
-                <li>pi66</li>
-                <li>Ronan Pigott</li>
-                <li>Stéphane Klein</li>
-                <li>valoq</li>
-                <li>Whyme Lyu</li>
-                <li>Yaakov Selkowitz</li>
-            </ul>
+            <description>
+                <p>Added</p>
+                <ul>
+                    <li>toplevel-tag option (and --toplevel-tag command line options to foot and
+                        footclient), allowing you to set a custom toplevel tag. The compositor must
+                        implement the new xdg-toplevel-tag-v1 Wayland protocol (#2212).</li>
+                    <li>[colors-dark] section to foot.ini. Replaces [colors].</li>
+                    <li>[colors-light] section to foot.ini. Replaces [colors2].</li>
+                    <li> XTGETTCAP: added query-os-name, returning the OS foot is compiled for (e.g.
+                        'Linux') (#2209).</li>
+                    <li>pad option now supports 4-directional padding format: LEFTxTOPxRIGHTxBOTTOM
+                        (e.g., 20x10x20x10).</li>
+                    <li>--config=PATH option is now automatically passed to new terminals spawned
+                        via
+                        spawn-terminal action (#2259).</li>
+                    <li>Preliminary (untested) support for background blur via the new
+                        ext-background-effect-v1 protocol. Enable by setting
+                        colors-{dark,light}.blur=yes. Foot needs to have been built against
+                        wayland-protocols >= 1.45, and the compositor must implement
+                        theext-background-effect-v1 protocol, and the blur effect.</li>
+                </ul>
+                <p>Changed</p>
+                <ul>
+                    <li>When enabling "focus mode" (private mode 1004), foot now sends a focus event
+                        immediately, to inform the application what the current state is (#2202).</li>
+                    <li>Scrollback search is now case sensitive when the search string contains at
+                        least
+                        one upper case character.</li>
+                    <li>Mouse tracking in SGR pixel mode no longer emits negative column/row pixel
+                        values (#2226).
+                    </li>
+                    <li>Foot now always uses ARGB SHM surfaces. In earlier versions, XRGB surfaces
+                        were
+                        used for opaque surfaces. Unfortunately, several compositors had issues when
+                        foot switched between ARGB and XRGB surfaces (for example when switching
+                        color
+                        theme, or toggling fullscreen).</li>
+                </ul>
+                <p>Deprecated</p>
+                <ul>
+                    <li>[colors] section in foot.ini. Use [colors-dark] instead.</li>
+                    <li>[colors2] section in foot.ini. Use [colors-light] instead.</li>
+                </ul>
+                <p>Removed</p>
+                <ul>
+                    <li>cursor.color config option (deprecated in 1.23.0). Use
+                        colors-{dark,light}.cursor instead.</li>
+                </ul>
+                <p>Fixed</p>
+                <ul>
+                    <li>Search mode: composing keys not ignored.</li>
+                    <li>Crash when triple-clicking a soft-wrapped line and there is a quote
+                        character in
+                        the last column.</li>
+                    <li>Crash when reverse-scrolling (terminfo capability rin) such that the current
+                        viewport ends up outside the scrollback (#2232).</li>
+                    <li>Regression: visual glitches in rare circumstances.</li>
+                    <li>Key release events for shortcuts being sent to the client application (kitty
+                        keyboard protocol only) (#2257). * Crash when application emits sixel RA
+                        with a
+                        height of 0, a width > 0, and then starts writing sixel data (#2267).</li>
+                    <li>Crash if shutting down terminal instance while a "pre-apply damage" thread
+                        is
+                        running (#2263).</li>
+                </ul>
+                <p>Contributors</p>
+                <ul>
+                    <li>Andrei</li>
+                    <li>Barinderpreet Singh</li>
+                    <li>c4llv07e</li>
+                    <li>Johannes Altmanninger</li>
+                    <li>nariby</li>
+                    <li>pi66</li>
+                    <li>Ronan Pigott</li>
+                    <li>Stéphane Klein</li>
+                    <li>valoq</li>
+                    <li>Whyme Lyu</li>
+                    <li>Yaakov Selkowitz</li>
+                </ul>
+            </description>
             <url>https://codeberg.org/dnkl/foot/releases/tag/1.26.0</url>
         </release>
         <release version="1.20.2" date="2025-01-18" />
