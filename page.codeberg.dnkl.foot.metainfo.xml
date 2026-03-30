@@ -34,6 +34,20 @@
         </screenshot>
     </screenshots>
     <releases>
+        <release version="1.26.1" date="2026-03-14">
+        <p>Fixed</p>
+        <lu>
+            <li>Wrong documented default value for initial-color-theme in foot.ini(5) (#2292).</li>
+            <li>Occasional crashes when closing a window and tweak.pre-apply-damage=yes (the
+                default) (#2288).</li>
+            <p>Contributors</p>
+        </lu>
+        <lu>
+            <li>Roshless</li>
+            <li>vlkrs</li>
+        </lu>
+        <url>https://codeberg.org/dnkl/foot/releases/tag/1.26.1</url>
+        </release>
         <release version="1.26.0" date="2026-03-03">
             <p>Added</p>
             <lu>
