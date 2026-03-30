@@ -99,6 +99,7 @@ modules:
     buildsystem: meson
     config-opts:
       - -Dterminfo=disabled
+      - -Db_lto=true
     post-install:
       - desktop-file-edit --set-key="Exec" --set-value="foot-wrapper.sh" "/app/share/applications/foot.desktop"
       - install -Dm755 ../foot-wrapper.sh -t /app/bin/
@@ -113,5 +114,5 @@ modules:
           tag-pattern: ^([\d.]+)$
       - type: file
         path: foot-wrapper.sh
-      - type: patch
-        path: upstream-metainfo.patch
+      - type: file
+        path: page.codeberg.dnkl.foot.metainfo.xml

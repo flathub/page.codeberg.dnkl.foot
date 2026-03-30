@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>page.codeberg.dnkl.foot</id>
+    <metadata_license>MIT</metadata_license>
+    <project_license>MIT</project_license>
+    <developer_name>dnkl</developer_name>
+    <name>foot</name>
+    <summary>The fast, lightweight and minimalistic Wayland terminal emulator.</summary>
+    <description>
+        <ul>
+            <li>Fast</li>
+            <li>Lightweight, in dependencies, on-disk and in-memory</li>
+            <li>Wayland native</li>
+            <li>DE agnostic</li>
+            <li>Server/daemon mode</li>
+            <li>User configurable font fallback</li>
+            <li>On-the-fly font resize</li>
+            <li>On-the-fly DPI font size adjustment</li>
+            <li>Scrollback search</li>
+            <li>Keyboard driven URL detection</li>
+            <li>Color emoji support</li>
+            <li>IME (via text-input-v3)</li>
+            <li>Multi-seat</li>
+            <li>True Color (24bpp)</li>
+            <li>Styled and colored underlines</li>
+            <li>Synchronized Updates support</li>
+            <li>Sixel image support</li>
+        </ul>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <caption>Foot with sixel graphics</caption>
+            <image>https://codeberg.org/dnkl/foot/media/branch/master/doc/sixel-wow.png</image>
+        </screenshot>
+    </screenshots>
+    <releases>
+        <release version="1.26.0" date="2026-03-03">
+            <p>Added</p>
+            <lu>
+                <li>toplevel-tag option (and --toplevel-tag command line options to foot and
+                    footclient), allowing you to set a custom toplevel tag. The compositor must
+                    implement the new xdg-toplevel-tag-v1 Wayland protocol (#2212).</li>
+                <li>[colors-dark] section to foot.ini. Replaces [colors].</li>
+                <li>[colors-light] section to foot.ini. Replaces [colors2].</li>
+                <li> XTGETTCAP: added query-os-name, returning the OS foot is compiled for (e.g.
+                    'Linux') (#2209).</li>
+                <li>pad option now supports 4-directional padding format: LEFTxTOPxRIGHTxBOTTOM
+                    (e.g., 20x10x20x10).</li>
+                <li>--config=PATH option is now automatically passed to new terminals spawned via
+                    spawn-terminal action (#2259).</li>
+                <li>Preliminary (untested) support for background blur via the new
+                    ext-background-effect-v1 protocol. Enable by setting
+                    colors-{dark,light}.blur=yes. Foot needs to have been built against
+                    wayland-protocols >= 1.45, and the compositor must implement
+                    theext-background-effect-v1 protocol, and the blur effect.</li>
+            </lu>
+            <p>Changed</p>
+            <lu>
+                <li>When enabling "focus mode" (private mode 1004), foot now sends a focus event
+                    immediately, to inform the application what the current state is (#2202).</li>
+                <li>Scrollback search is now case sensitive when the search string contains at least
+                    one upper case character.</li>
+                <li>Mouse tracking in SGR pixel mode no longer emits negative column/row pixel
+                    values (#2226).
+                </li>
+                <li>Foot now always uses ARGB SHM surfaces. In earlier versions, XRGB surfaces were
+                    used for opaque surfaces. Unfortunately, several compositors had issues when
+                    foot switched between ARGB and XRGB surfaces (for example when switching color
+                    theme, or toggling fullscreen).</li>
+            </lu>
+            <p>Deprecated</p>
+            <lu>
+                <li>[colors] section in foot.ini. Use [colors-dark] instead.</li>
+                <li>[colors2] section in foot.ini. Use [colors-light] instead.</li>
+            </lu>
+            <p>Removed</p>
+            <lu>
+                <li>cursor.color config option (deprecated in 1.23.0). Use
+                    colors-{dark,light}.cursor instead.</li>
+            </lu>
+            <p>Fixed</p>
+            <lu>
+                <li>Search mode: composing keys not ignored.</li>
+                <li>Crash when triple-clicking a soft-wrapped line and there is a quote character in
+                    the last column.</li>
+                <li>Crash when reverse-scrolling (terminfo capability rin) such that the current
+                    viewport ends up outside the scrollback (#2232).</li>
+                <li>Regression: visual glitches in rare circumstances.</li>
+                <li>Key release events for shortcuts being sent to the client application (kitty
+                    keyboard protocol only) (#2257). * Crash when application emits sixel RA with a
+                    height of 0, a width > 0, and then starts writing sixel data (#2267).</li>
+                <li>Crash if shutting down terminal instance while a "pre-apply damage" thread is
+                    running (#2263).</li>
+            </lu>
+            <p>Contributors</p>
+            <lu>
+                <li>Andrei</li>
+                <li>Barinderpreet Singh</li>
+                <li>c4llv07e</li>
+                <li>Johannes Altmanninger</li>
+                <li>nariby</li>
+                <li>pi66</li>
+                <li>Ronan Pigott</li>
+                <li>Stéphane Klein</li>
+                <li>valoq</li>
+                <li>Whyme Lyu</li>
+                <li>Yaakov Selkowitz</li>
+            </lu>
+        </release>
+        <release version="1.20.2" date="2025-01-18" />
+        <release version="1.20.1" date="2025-01-03" />
+        <release version="1.20.0" date="2025-01-01" />
+        <release version="1.19.0" date="2024-10-23" />
+        <release version="1.18.1" date="2024-08-14" />
+        <release version="1.18.0" date="2024-08-02" />
+        <release version="1.17.2" date="2024-04-17" />
+        <release version="1.17.1" date="2024-04-11" />
+        <release version="1.17.0" date="2024-04-02" />
+        <release version="1.16.2" date="2023-10-17" />
+        <release version="1.16.1" date="2023-10-12" />
+        <release version="1.16.0" date="2023-10-11" />
+        <release version="1.15.3" date="2023-08-07" />
+        <release version="1.15.2" date="2023-07-30" />
+        <release version="1.15.1" date="2023-07-21" />
+        <release version="1.15.0" date="2023-07-14" />
+        <release version="1.14.0" date="2023-04-03" />
+        <release version="1.13.1" date="2022-08-31" />
+        <release version="1.13.0" date="2022-08-07" />
+    </releases>
+    <launchable type="desktop-id">page.codeberg.dnkl.foot.desktop</launchable>
+    <url type="homepage">https://codeberg.org/dnkl/foot</url>
+    <url type="bugtracker">https://codeberg.org/dnkl/foot/issues</url>
+    <content_rating type="oars-1.1" />
+</component>
