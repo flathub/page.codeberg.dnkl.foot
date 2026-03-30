@@ -36,21 +36,21 @@
     <releases>
         <release version="1.26.1" date="2026-03-14">
         <p>Fixed</p>
-        <lu>
+        <ul>
             <li>Wrong documented default value for initial-color-theme in foot.ini(5) (#2292).</li>
             <li>Occasional crashes when closing a window and tweak.pre-apply-damage=yes (the
                 default) (#2288).</li>
             <p>Contributors</p>
-        </lu>
-        <lu>
+        </ul>
+        <ul>
             <li>Roshless</li>
             <li>vlkrs</li>
-        </lu>
+        </ul>
         <url>https://codeberg.org/dnkl/foot/releases/tag/1.26.1</url>
         </release>
         <release version="1.26.0" date="2026-03-03">
             <p>Added</p>
-            <lu>
+            <ul>
                 <li>toplevel-tag option (and --toplevel-tag command line options to foot and
                     footclient), allowing you to set a custom toplevel tag. The compositor must
                     implement the new xdg-toplevel-tag-v1 Wayland protocol (#2212).</li>
@@ -67,9 +67,9 @@
                     colors-{dark,light}.blur=yes. Foot needs to have been built against
                     wayland-protocols >= 1.45, and the compositor must implement
                     theext-background-effect-v1 protocol, and the blur effect.</li>
-            </lu>
+            </ul>
             <p>Changed</p>
-            <lu>
+            <ul>
                 <li>When enabling "focus mode" (private mode 1004), foot now sends a focus event
                     immediately, to inform the application what the current state is (#2202).</li>
                 <li>Scrollback search is now case sensitive when the search string contains at least
@@ -81,19 +81,19 @@
                     used for opaque surfaces. Unfortunately, several compositors had issues when
                     foot switched between ARGB and XRGB surfaces (for example when switching color
                     theme, or toggling fullscreen).</li>
-            </lu>
+            </ul>
             <p>Deprecated</p>
-            <lu>
+            <ul>
                 <li>[colors] section in foot.ini. Use [colors-dark] instead.</li>
                 <li>[colors2] section in foot.ini. Use [colors-light] instead.</li>
-            </lu>
+            </ul>
             <p>Removed</p>
-            <lu>
+            <ul>
                 <li>cursor.color config option (deprecated in 1.23.0). Use
                     colors-{dark,light}.cursor instead.</li>
-            </lu>
+            </ul>
             <p>Fixed</p>
-            <lu>
+            <ul>
                 <li>Search mode: composing keys not ignored.</li>
                 <li>Crash when triple-clicking a soft-wrapped line and there is a quote character in
                     the last column.</li>
@@ -105,9 +105,9 @@
                     height of 0, a width > 0, and then starts writing sixel data (#2267).</li>
                 <li>Crash if shutting down terminal instance while a "pre-apply damage" thread is
                     running (#2263).</li>
-            </lu>
+            </ul>
             <p>Contributors</p>
-            <lu>
+            <ul>
                 <li>Andrei</li>
                 <li>Barinderpreet Singh</li>
                 <li>c4llv07e</li>
@@ -119,7 +119,7 @@
                 <li>valoq</li>
                 <li>Whyme Lyu</li>
                 <li>Yaakov Selkowitz</li>
-            </lu>
+            </ul>
             <url>https://codeberg.org/dnkl/foot/releases/tag/1.26.0</url>
         </release>
         <release version="1.20.2" date="2025-01-18" />
