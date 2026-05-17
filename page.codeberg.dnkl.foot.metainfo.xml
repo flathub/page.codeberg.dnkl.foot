@@ -37,6 +37,35 @@
         </screenshot>
     </screenshots>
     <releases>
+        <release version="1.27.0" date="2026-05-15">
+            <description>
+                <p>Added</p>
+                <ul>
+                    <li>url.style=none|single|double|curly|dotted|dashed option added, allowing you
+                        to configure how URL underlines are drawn. The default is dotted (#2302).</li>
+                </ul>
+                <p>Changed</p>
+                <ul>
+                    <li>URL underlines are now dotted by default, instead of plain underlines. This
+                        can be changed with the new url.style option.</li>
+                    <li>If the cursor foreground and background colors are identical, use the
+                        current cell's foreground and background colors (inverted), instead of the
+                        default foreground and background colors (#2323).</li>
+                </ul>
+                <p>Fixed</p>
+                <ul>
+                    <li>Other output (key presses, query replies etc) being mixed with paste data,
+                        both interactive pastes and OSC-52 (#2307).</li>
+                    <li>Scrollback search not working correctly when the terminal application has
+                        enabled the kitty keyboard protocol with release event reporting (#2316).</li>
+                    <li>Keypad escapes in the legacy keyboard protocol ignoring the shift modifier
+                        (#2324).</li>
+                    <li>Crash when querying the kitty notification protocol (OSC-99, with p=?)
+                        (#2335).</li>
+                </ul>
+            </description>
+            <url>https://codeberg.org/dnkl/foot/releases/tag/1.27.0</url>
+        </release>
         <release version="1.26.1" date="2026-03-14">
             <description>
                 <p>Fixed</p>
