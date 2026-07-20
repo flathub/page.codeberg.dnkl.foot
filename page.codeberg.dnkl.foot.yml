@@ -75,7 +75,7 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/dnkl/tllist.git
-        commit: 8dcb0725c73eee9e350f41a921faf0bcd2ab9920
+        commit: 03c24967045431c7441cb3ddad517737e4a3b05f
         tag: 1.1.0
         x-checker-data:
           type: git
@@ -89,7 +89,7 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/dnkl/fcft.git
-        commit: 38de2ae450df667ac71ba4811fe535aa1954a217
+        commit: 24591f1bd1c1b3ce670e1fd1ad8ca2392672b687
         tag: 3.3.3
         x-checker-data:
           type: git
@@ -106,8 +106,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/dnkl/foot.git
-        commit: b44a62724cd51c7fecdfd9d1b41a3691b11a4c27
-        tag: 1.25.0
+        commit: bde83b85825176639c7b53d37aaea49c25273627
+        tag: 1.27.0
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
