@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>page.codeberg.dnkl.foot</id>
+    <metadata_license>MIT</metadata_license>
+    <project_license>MIT</project_license>
+    <developer id="page.codeberg.dnkl">
+        <name>dnkl</name>
+    </developer>
+    <name>foot</name>
+    <summary>The fast, lightweight and minimalistic Wayland terminal emulator</summary>
+    <description>
+        <ul>
+            <li>Fast</li>
+            <li>Lightweight, in dependencies, on-disk and in-memory</li>
+            <li>Wayland native</li>
+            <li>DE agnostic</li>
+            <li>Server/daemon mode</li>
+            <li>User configurable font fallback</li>
+            <li>On-the-fly font resize</li>
+            <li>On-the-fly DPI font size adjustment</li>
+            <li>Scrollback search</li>
+            <li>Keyboard driven URL detection</li>
+            <li>Color emoji support</li>
+            <li>IME (via text-input-v3)</li>
+            <li>Multi-seat</li>
+            <li>True Color (24bpp)</li>
+            <li>Styled and colored underlines</li>
+            <li>Synchronized Updates support</li>
+            <li>Sixel image support</li>
+        </ul>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <caption>Foot with sixel graphics</caption>
+            <image>
+                https://codeberg.org/dnkl/foot/raw/commit/037a2f4fa2c6fab014248d62efa8a6e14f617832/doc/sixel-tux-foot.png</image>
+        </screenshot>
+    </screenshots>
+    <releases>
+        <release version="1.28.0" date="2026-10-16">
+            <description>
+                <p>Added</p>
+                <ul>
+                    <li>Command line option --class, an alias for --app-id. Intended to be used by
+                        scripts and similar that wants to launch terminal instances in a terminal
+                        agnostic way (#2368).</li>
+                    <li>Support for terminal visibility reports, using the Wayland xdg_toplevel
+                        suspended state.</li>
+                    <li>Support for wl_fixes::ack_global_remove().</li>
+                </ul>
+                <p>Changed</p>
+                <ul>
+                    <li>Do not allow codepoints to be merged into grapheme clusters directly after a
+                        cursor move (#2383).</li>
+                    <li>Dracula theme updated to latest official, and light theme alucard added.</li>
+                    <li>Sixels: pan/pad clamped to 5 (#2371).</li>
+                    <li>Default URL regex changed to: allow single quotes (') inside the URL (but
+                        not at the end, unless
+                        balanced). Also require at least one character inside balanced [], (), '' or
+                        "". (#2417).</li>
+                    <li>Foot now sets window urgency when a notification is activated, and foot
+                        hasn't received an XDG activation token.</li>
+                    <li>-D,--working-directory now supports file:// URIs.</li>
+                </ul>
+                <p>Removed</p>
+                <ul>
+                    <li>[colors] and [colors2] config sections, and the corresponding
+                        color-theme-switch-1 and color-theme-switch-2 key bindings.</li>
+                    <li>These were deprecated in 1.26.0, and were replaced by [colors-dark],
+                        [colors-light], color-theme-switch-dark and color-theme-switch-light.</li>
+                </ul>
+                <p>Fixed</p>
+                <ul>
+                    <li>Out-of-bounds read when parsing URIs with malformed %-encoded content
+                        (#2353).</li>
+                    <li>DECCRA not clamping or verifying the destination rectangle (#2352).</li>
+                    <li>Empty selection clearing the clipboard (#2327).</li>
+                    <li>Require xkbcommon &gt;= 1.6.0. This has been the case for a while, due to
+                        our
+                        use of XKB_KEYSYM_MAX. Now it is formalized in meson.build (#2379).</li>
+                    <li>Block selection area incorrectly updated when selecting back across the
+                        starting column.</li>
+                    <li>Passing a very large value as CHT/CBT argument hangs the terminal (#2360).</li>
+                    <li>Sixel: crash when using a shared palette and gamma-correct blending has been
+                        enabled, or foot is using 10-bit surface (#2370).</li>
+                    <li>Kitty text-size protocol: fix crash when text is zero-length (#2364).</li>
+                    <li>Escape quotes in file names being DnD:ed on the command line (#2363).</li>
+                    <li>Crash in --server mode, when a tracked notification is closed after the
+                        associated terminal instance has been closed (#2397).</li>
+                    <li>Incorrect word boundary detection when selection words with a multi-column
+                        character in the last column (#2411).</li>
+                    <li>reallocarray() is no longer required, so as to support platforms where libc
+                        doesn't include it (e.g. Termux + Android API &lt; 29).</li>
+                    <li>Crash in select-quote when the right-side quote appeared right after a
+                        newline, in column 0 (#2405).</li>
+                    <li>Resizing a terminal window may break current selection.</li>
+                    <li>Crash when closing a window that touch input focus.</li>
+                    <li>Application mouse grabbing not working when there is no keymap available.</li>
+                    <li>Crash when a buggy compositor sends a keyboard_enter() event with a NULL
+                        surface (#2438).</li>
+                    <li>Crash when clicking without moving the mouse after resizing the window, and
+                        the clicked area is now outside the cell grid (#2435).</li>
+                    <li>Modifiers in mouse-bindings colliding with the modifiers in
+                        selection-override-modifiers not always detected.</li>
+                    <li>selection-override-modifiers=none preventing applications from grabbing the
+                        mouse.</li>
+                </ul>
+                <p>Contributors</p>
+                <ul>
+                    <li>0WD0</li>
+                    <li>airkoala</li>
+                    <li>aloires</li>
+                    <li>Campbell Barton</li>
+                    <li>CismonX</li>
+                    <li>Craig Barnes</li>
+                    <li>Emily Vlasics</li>
+                    <li>fhqh</li>
+                    <li>K4</li>
+                    <li>koru</li>
+                    <li>lumerue</li>
+                    <li>Marinus Klasen</li>
+                    <li>sentriz</li>
+                    <li>Tim Culverhouse</li>
+                </ul>
+            </description>
+            <url>https://codeberg.org/dnkl/foot/releases/tag/1.28.0</url>
+        </release>
+        <release version="1.27.0" date="2026-05-15">
+            <description>
+                <p>Added</p>
+                <ul>
+                    <li>url.style=none|single|double|curly|dotted|dashed option added, allowing you
+                        to configure how URL underlines are drawn. The default is dotted (#2302).</li>
+                </ul>
+                <p>Changed</p>
+                <ul>
+                    <li>URL underlines are now dotted by default, instead of plain underlines. This
+                        can be changed with the new url.style option.</li>
+                    <li>If the cursor foreground and background colors are identical, use the
+                        current cell's foreground and background colors (inverted), instead of the
+                        default foreground and background colors (#2323).</li>
+                </ul>
+                <p>Fixed</p>
+                <ul>
+                    <li>Other output (key presses, query replies etc) being mixed with paste data,
+                        both interactive pastes and OSC-52 (#2307).</li>
+                    <li>Scrollback search not working correctly when the terminal application has
+                        enabled the kitty keyboard protocol with release event reporting (#2316).</li>
+                    <li>Keypad escapes in the legacy keyboard protocol ignoring the shift modifier
+                        (#2324).</li>
+                    <li>Crash when querying the kitty notification protocol (OSC-99, with p=?)
+                        (#2335).</li>
+                </ul>
+            </description>
+            <url>https://codeberg.org/dnkl/foot/releases/tag/1.27.0</url>
+        </release>
+        <release version="1.26.1" date="2026-03-14">
+            <description>
+                <p>Fixed</p>
+                <ul>
+                    <li>Wrong documented default value for initial-color-theme in foot.ini(5)
+                        (#2292).</li>
+                    <li>Occasional crashes when closing a window and tweak.pre-apply-damage=yes (the
+                        default) (#2288).</li>
+                </ul>
+                <p>Contributors</p>
+                <ul>
+                    <li>Roshless</li>
+                    <li>vlkrs</li>
+                </ul>
+            </description>
+            <url>https://codeberg.org/dnkl/foot/releases/tag/1.26.1</url>
+        </release>
+        <release version="1.26.0" date="2026-03-03">
+            <description>
+                <p>Added</p>
+                <ul>
+                    <li>toplevel-tag option (and --toplevel-tag command line options to foot and
+                        footclient), allowing you to set a custom toplevel tag. The compositor must
+                        implement the new xdg-toplevel-tag-v1 Wayland protocol (#2212).</li>
+                    <li>[colors-dark] section to foot.ini. Replaces [colors].</li>
+                    <li>[colors-light] section to foot.ini. Replaces [colors2].</li>
+                    <li> XTGETTCAP: added query-os-name, returning the OS foot is compiled for (e.g.
+                        'Linux') (#2209).</li>
+                    <li>pad option now supports 4-directional padding format: LEFTxTOPxRIGHTxBOTTOM
+                        (e.g., 20x10x20x10).</li>
+                    <li>--config=PATH option is now automatically passed to new terminals spawned
+                        via
+                        spawn-terminal action (#2259).</li>
+                    <li>Preliminary (untested) support for background blur via the new
+                        ext-background-effect-v1 protocol. Enable by setting
+                        colors-{dark,light}.blur=yes. Foot needs to have been built against
+                        wayland-protocols &gt;= 1.45, and the compositor must implement
+                        theext-background-effect-v1 protocol, and the blur effect.</li>
+                </ul>
+                <p>Changed</p>
+                <ul>
+                    <li>When enabling "focus mode" (private mode 1004), foot now sends a focus event
+                        immediately, to inform the application what the current state is (#2202).</li>
+                    <li>Scrollback search is now case sensitive when the search string contains at
+                        least
+                        one upper case character.</li>
+                    <li>Mouse tracking in SGR pixel mode no longer emits negative column/row pixel
+                        values (#2226).
+                    </li>
+                    <li>Foot now always uses ARGB SHM surfaces. In earlier versions, XRGB surfaces
+                        were
+                        used for opaque surfaces. Unfortunately, several compositors had issues when
+                        foot switched between ARGB and XRGB surfaces (for example when switching
+                        color
+                        theme, or toggling fullscreen).</li>
+                </ul>
+                <p>Deprecated</p>
+                <ul>
+                    <li>[colors] section in foot.ini. Use [colors-dark] instead.</li>
+                    <li>[colors2] section in foot.ini. Use [colors-light] instead.</li>
+                </ul>
+                <p>Removed</p>
+                <ul>
+                    <li>cursor.color config option (deprecated in 1.23.0). Use
+                        colors-{dark,light}.cursor instead.</li>
+                </ul>
+                <p>Fixed</p>
+                <ul>
+                    <li>Search mode: composing keys not ignored.</li>
+                    <li>Crash when triple-clicking a soft-wrapped line and there is a quote
+                        character in
+                        the last column.</li>
+                    <li>Crash when reverse-scrolling (terminfo capability rin) such that the current
+                        viewport ends up outside the scrollback (#2232).</li>
+                    <li>Regression: visual glitches in rare circumstances.</li>
+                    <li>Key release events for shortcuts being sent to the client application (kitty
+                        keyboard protocol only) (#2257). * Crash when application emits sixel RA
+                        with a
+                        height of 0, a width &gt; 0, and then starts writing sixel data (#2267).</li>
+                    <li>Crash if shutting down terminal instance while a "pre-apply damage" thread
+                        is
+                        running (#2263).</li>
+                </ul>
+                <p>Contributors</p>
+                <ul>
+                    <li>Andrei</li>
+                    <li>Barinderpreet Singh</li>
+                    <li>c4llv07e</li>
+                    <li>Johannes Altmanninger</li>
+                    <li>nariby</li>
+                    <li>pi66</li>
+                    <li>Ronan Pigott</li>
+                    <li>Stéphane Klein</li>
+                    <li>valoq</li>
+                    <li>Whyme Lyu</li>
+                    <li>Yaakov Selkowitz</li>
+                </ul>
+            </description>
+            <url>https://codeberg.org/dnkl/foot/releases/tag/1.26.0</url>
+        </release>
+        <release version="1.20.2" date="2025-01-18" />
+    </releases>
+    <launchable type="desktop-id">page.codeberg.dnkl.foot.desktop</launchable>
+    <url type="homepage">https://codeberg.org/dnkl/foot</url>
+    <url type="bugtracker">https://codeberg.org/dnkl/foot/issues</url>
+    <url type="vcs-browser">https://codeberg.org/dnkl/foot</url>
+    <url type="help">https://codeberg.org/dnkl/foot/wiki</url>
+    <content_rating type="oars-1.1" />
+</component>
